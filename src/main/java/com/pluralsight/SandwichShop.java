@@ -7,15 +7,25 @@ public class SandwichShop {
         Scanner sandwichInput = new Scanner(System.in);
         double price = 0;
 
-        // Ask user what size they want
+        // Ask user what size they want and whether they want it loaded or not
         System.out.println("What size do you want? Press 1 for regular or 2 for large.");
         int size = sandwichInput.nextInt();
+        sandwichInput.nextLine();
+
+        System.out.println("Loaded? (yes/no)");
+        String loaded = sandwichInput.nextLine();
 
         if(size == 1){
             price = 5.45;
+            if(loaded.equalsIgnoreCase("yes")){
+                price = price + 1;
+            }
         }
         else if(size == 2){
             price = 8.95;
+            if(loaded.equalsIgnoreCase("yes")) {
+                price = price + 1.75;
+            }
         }
         else{
             System.out.println("Error, please pick a valid size.");
